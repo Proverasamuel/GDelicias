@@ -8,7 +8,7 @@ import { CtaComponent } from './components/cta/cta.component';
 @Component({
   selector: 'app-pacotes',
   standalone: true,
-  imports: [NgFor, RouterLink, HeroComponent, PacoteComponent, CtaComponent],
+  imports: [HeroComponent, PacoteComponent, CtaComponent],
   templateUrl: './pacotes.component.html',
   styleUrl: './pacotes.component.css'
 })
