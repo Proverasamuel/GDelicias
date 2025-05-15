@@ -1,77 +1,59 @@
 <!-- Navbar fixada e estilizada -->
 <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
-            <div class="flex items-center">
-                <a href="#" class="flex items-center space-x-2">
-                    <!-- SVG da logo PastelTech -->
-                    <svg class="h-10 w-10 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2C10 2 9 5 9 5s-1.5.5-2.5 1.5C5.5 8 5 10 5 10s2.5 1 4 2 4 2 5 3c1 .8 3 2 3 2s1-1.5 1-3c0-1.5-1.5-3-1.5-3S19 8 17 6s-3-2-3-2-1-2-2-2z" />
-                    </svg>
-                    <span class="text-2xl font-bold text-yellow-400">G'Delicias</span>
-                </a>
-                <div class="hidden md:ml-10 md:flex md:space-x-8">
-                    <a routerLink="/" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                    <a routerLink="/pacotes"
-                        class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Pacotes</a>
-                    <a routerLink="/produtos" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Produtos</a>
-                  <a routerLink="/contato"
-                        class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contato</a>
-                </div>
-            </div>
-            <div class="flex items-center">
-                <div class="hidden md:flex md:space-x-4">
-                    <a href="#"
-                        class="text-gray-800 hover:text-yellow-500 px-4 py-2 rounded-md text-sm font-medium">Entrar</a>
-                    <a href="#"
-                        class="bg-yellow-300 text-gray-800 px-4 py-2 rounded-md text-sm font-semibold hover:bg-yellow-400 transition">
-                        Criar Conta
-                    </a>
-                </div>
-                <div class="flex md:hidden">
-                    <button type="button"
-                        class="p-2 rounded-md text-gray-800 hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-400"
-                        aria-expanded="false">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-20">
+      <div class="flex items-center">
+        <a href="#" class="flex items-center space-x-2">
+          <!-- SVG da logo PastelTech -->
+          <svg class="h-10 w-10 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C10 2 9 5 9 5s-1.5.5-2.5 1.5C5.5 8 5 10 5 10s2.5 1 4 2 4 2 5 3c1 .8 3 2 3 2s1-1.5 1-3c0-1.5-1.5-3-1.5-3S19 8 17 6s-3-2-3-2-1-2-2-2z" />
+          </svg>
+          <span class="text-2xl font-bold text-yellow-400">G'Delicias</span>
+        </a>
+        <div class="hidden md:ml-10 md:flex md:space-x-8">
+          <a routerLink="/" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+          <a routerLink="/pacotes" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Pacotes</a>
+          <a routerLink="/produtos" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Produtos</a>
+          <a routerLink="/contato" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contato</a>
         </div>
-    </div>
+      </div>
 
-    <!-- Mobile menu -->
-    <div class="md:hidden hidden" id="mobile-menu">
-        <div class="px-4 pt-4 pb-6 bg-white/90 backdrop-blur-md space-y-1 shadow-lg">
-            <a routerLink="/" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a routerLink="/pacotes" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Pacotes</a>
-            <a href="#" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Produtos</a>
-            <a routerLink="/personalizar" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Monte o
-                seu</a>
-            <a routerLink="/contato" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contato</a>
-            <div class="pt-4 border-t border-yellow-200">
-                <a href="#"
-                    class="block text-center text-gray-700 bg-yellow-100 px-3 py-2 rounded-md text-base font-medium hover:bg-yellow-200">Entrar</a>
-                <a href="#"
-                    class="mt-2 block text-center bg-yellow-300 text-gray-800 px-3 py-2 rounded-md text-base font-semibold hover:bg-yellow-400 transition">Criar
-                    Conta</a>
-            </div>
+      <div class="flex items-center">
+        <div class="hidden md:flex md:space-x-4">
+          <a href="#" class="text-gray-800 hover:text-yellow-500 px-4 py-2 rounded-md text-sm font-medium">Entrar</a>
+          <a href="#" class="bg-yellow-300 text-gray-800 px-4 py-2 rounded-md text-sm font-semibold hover:bg-yellow-400 transition">Criar Conta</a>
         </div>
+
+        <!-- Botão do menu mobile -->
+        <div class="flex md:hidden">
+          <button (click)="toggleMenu()" type="button"
+            class="p-2 rounded-md text-gray-800 hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-400"
+            [attr.aria-expanded]="menuAberto">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Menu mobile -->
+  <div class="md:hidden" [class.hidden]="!menuAberto" id="mobile-menu">
+    <div class="px-4 pt-4 pb-6 bg-white/90 backdrop-blur-md space-y-1 shadow-lg">
+      <a routerLink="/" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a routerLink="/pacotes" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Pacotes</a>
+      <a routerLink="/produtos" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Produtos</a>
+      <a routerLink="/personalizar" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Monte o seu</a>
+      <a routerLink="/contato" class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+
+      <div class="pt-4 border-t border-yellow-200">
+        <a href="#" class="block text-center text-gray-700 bg-yellow-100 px-3 py-2 rounded-md text-base font-medium hover:bg-yellow-200">Entrar</a>
+        <a href="#" class="mt-2 block text-center bg-yellow-300 text-gray-800 px-3 py-2 rounded-md text-base font-semibold hover:bg-yellow-400 transition">Criar Conta</a>
+      </div>
+    </div>
+  </div>
 </nav>
-
-
-
-<script>
-    // Toggle menu mobile
-    document.querySelector('button[aria-expanded]').addEventListener('click', function () {
-        const menu = document.getElementById('mobile-menu');
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('hidden');
-    });
-</script>

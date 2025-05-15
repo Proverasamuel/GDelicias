@@ -30,27 +30,24 @@ export class PersonalizarComponent {
     vegano: false
   };
   produtos = [
-    { nome: 'Carne', preco: 500, imagem: 'assets/pasteis/carne.jpg', descricao: 'Pastel de carne bem recheado' },
-    { nome: 'Queijo', preco: 500, imagem: 'assets/pasteis/queijo.jpg', descricao: 'Pastel de queijo delicioso' },
-    { nome: 'Doce', preco: 400, imagem: 'assets/pasteis/doce.jpg', descricao: 'Pastel doce com recheio especial' },
-    { nome: 'Vegetariano', preco: 600, imagem: 'assets/pasteis/vegetariano.jpg', descricao: 'Opção saudável e saborosa' },
-    { nome: 'Laranja', preco: 300, imagem: 'assets/bebidas/laranja.jpg', descricao: 'Suco de laranja natural' },
-    { nome: 'Ananás', preco: 300, imagem: 'assets/bebidas/ananás.jpg', descricao: 'Suco de ananás refrescante' },
-    { nome: 'Manga', preco: 300, imagem: 'assets/bebidas/manga.jpg', descricao: 'Suco de manga doce' },
-    { nome: 'Natural', preco: 400, imagem: 'assets/iogurtes/natural.jpg', descricao: 'Iogurte natural leve' },
-    { nome: 'Morango', preco: 400, imagem: 'assets/iogurtes/morango.jpg', descricao: 'Iogurte de morango' }
-  ];
+    { nome: 'Mini Coxinha', preco: 150, imagem: 'assets/img/mini_coxinha_de_frango.jpg', descricao: 'Pastel de carne bem recheado' },
+    { nome: 'Mini Almofadinha de Carne', preco: 150, imagem: 'assets/img/mini_almofada_de_carne.jpg', descricao: 'Pastel de queijo delicioso' },
+    { nome: 'Mini Enrolado de Salsicha', preco: 150, imagem: 'assets/img/mini_enroladinho_de_salsicha.jpg', descricao: 'Pastel doce com recheio especial' },
+    { nome: 'Mini Almofadinha', preco: 150, imagem: 'assets/img/mini_almofada_de_queijo_e_fiambre.jpg', descricao: 'Opção saudável e saborosa' },
+    { nome: 'Bola de Berlim', preco: 200, imagem: 'assets/img/bola_de_berlim.jpg', descricao: 'Suco de laranja natural' },
+    { nome: 'Cakes', preco: 250, imagem: 'assets/img/cakes.jpg', descricao: 'Suco de ananás refrescante' },
+    { nome: 'Iogurte', preco: 600, imagem: 'assets/img/iogurte.jpg', descricao: 'Suco de manga doce' },
+ ];
 
   precos: Record<string, number> = {
-    'Carne': 500,
-    'Queijo': 500,
-    'Doce': 400,
-    'Vegetariano': 600,
-    'Laranja': 300,
-    'Ananás': 300,
-    'Manga': 300,
-    'Natural': 400,
-    'Morango': 400,
+    'Mini Coxinha': 150,
+    'Mini Almofadinha de Carne': 150,
+    'Mini Enrolado de Salsicha': 150,
+    'Mini Almofadinha': 150,
+    'Bola de Berlim': 200,
+    'Cakes': 250,
+    'Iogurte': 600,
+    
   };
 
  
@@ -66,6 +63,32 @@ export class PersonalizarComponent {
       this.carrinho.push({ nome: produto.nome, preco: produto.preco, quantidade: 1, total: produto.preco });
     }
   }
+
+  mostrarModalResumo = false;
+
+abrirModalResumo() {
+  this.mostrarModalResumo = true;
+}
+
+fecharModalResumo() {
+  this.mostrarModalResumo = false;
+}
+
+gerarLinkWhatsApp(): string {
+  const numeroEmpresa = '+244941715454'; // coloque o número do WhatsApp da empresa com DDI/DD
+  let mensagem = `Olá! Gostaria de fazer um pedido:\n`;
+  mensagem += `👥 Para: ${this.numeroDePessoas} pessoa(s)\n\n`;
+  mensagem += `📦 Produtos:\n`;
+
+  this.carrinho.forEach(item => {
+    mensagem += `- ${item.quantidade}x ${item.nome} (KZ ${item.total.toFixed(2)})\n`;
+  });
+
+  mensagem += `\n💰 Total: KZ ${this.total.toFixed(2)}`;
+
+  return `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(mensagem)}`;
+}
+
 
   adicionarAoPedido(numero: number) {
     this.numeroDePessoas = numero;
