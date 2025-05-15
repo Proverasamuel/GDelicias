@@ -1,49 +1,60 @@
-<section class="bg-[#ffffff] py-20 px-6">
+<section class="bg-white py-20 px-6">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold text-yellow-900 mb-12 text-center">
-      Produtos em Destaque
-    </h2>
+    <h2 class="text-3xl font-bold text-yellow-900 mb-12 text-center">Produtos em Destaque</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Produto 1: Mini Coxinha -->
-      <div class="relative bg-white rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 p-6">
-        <span class="absolute top-4 right-4 bg-yellow-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-          Mais Vendido
+      <div
+        *ngFor="let produto of produtos"
+        class="relative bg-white rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 p-6"
+      >
+        <span class="absolute top-4 right-4 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md" [ngClass]="produto.tagCor">
+          {{ produto.tag }}
         </span>
-        <img src="assets/img/mini_coxinha_de_frango.jpg" alt="Mini Coxinha de Frango" class="rounded-xl w-full h-48 object-cover mb-4">
-        <h3 class="text-xl font-bold text-yellow-900">Mini Coxinha de Frango</h3>
-        <p class="text-gray-700 mt-2">Carne moída temperada com especiarias da casa, envolta em massa crocante.</p>
-        <p class="mt-3 text-yellow-800 font-semibold text-lg">150 Kz</p>
-        <button class="mt-4 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded-full transition duration-300">
+        <img [src]="produto.imagem" [alt]="produto.nome" class="rounded-xl w-full h-48 object-cover mb-4" />
+        <h3 class="text-xl font-bold text-yellow-900">{{ produto.nome }}</h3>
+        <p class="text-gray-700 mt-2">{{ produto.descricao }}</p>
+        <p class="mt-3 text-yellow-800 font-semibold text-lg">{{ produto.preco }} Kz</p>
+        <button
+          (click)="abrirModal(produto)"
+          class="mt-4 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded-full transition duration-300"
+        >
           Encomendar
         </button>
       </div>
+    </div>
+  </div>
 
-      <!-- Produto 2: Mini Almofadinha -->
-      <div class="relative bg-white rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 p-6">
-        <span class="absolute top-4 right-4 bg-rose-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-          Novo
-        </span>
-        <img src="assets/img/mini_almofada_de_carne.jpg" alt="Mini Almofadinha de Carne" class="rounded-xl w-full h-48 object-cover mb-4">
-        <h3 class="text-xl font-bold text-yellow-900">Mini Almofadinha de Carne</h3>
-        <p class="text-gray-700 mt-2">Combinação clássica de frango desfiado com o cremoso catupiry.</p>
-        <p class="mt-3 text-yellow-800 font-semibold text-lg">150 Kz</p>
-        <button class="mt-4 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded-full transition duration-300">
-          Encomendar
-        </button>
+  <!-- Modal -->
+  <div
+    *ngIf="modalAberta"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+      <h3 class="text-xl font-bold mb-4 text-yellow-900">Encomendar {{ produtoSelecionado?.nome }}</h3>
+      <p class="mb-2 text-gray-700">{{ produtoSelecionado?.descricao }}</p>
+      <div class="flex items-center gap-2 mb-4">
+        <label class="font-semibold text-gray-800">Quantidade:</label>
+        <input
+          type="number"
+          min="1"
+          [(ngModel)]="quantidade"
+          (input)="atualizarTotal()"
+          class="border border-gray-300 rounded px-3 py-1 w-20"
+        />
       </div>
-
-      <!-- Produto 3: Bola de Berlim -->
-      <div class="relative bg-white rounded-2xl shadow-md hover:scale-105 transition-transform duration-300 p-6">
-        <span class="absolute top-4 right-4 bg-yellow-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-          Mais Vendido
-        </span>
-        <img src="assets/img/bola_de_berlim.jpg" alt="Bola de Berlim" class="rounded-xl w-full h-48 object-cover mb-4">
-        <h3 class="text-xl font-bold text-yellow-900">Bola de Berlim</h3>
-        <p class="text-gray-700 mt-2">Pastel doce com recheio generoso de doce de leite, polvilhado com açúcar.</p>
-        <p class="mt-3 text-yellow-800 font-semibold text-lg">200 Kz</p>
-        <button class="mt-4 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded-full transition duration-300">
-          Encomendar
+      <p class="mb-4 font-bold text-yellow-800">Total: {{ total }} Kz</p>
+      <div class="flex justify-end gap-4">
+        <button
+          (click)="cancelar()"
+          class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded"
+        >
+          Cancelar
+        </button>
+        <button
+          (click)="concluirPedido()"
+          class="px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded"
+        >
+          Concluir Pedido
         </button>
       </div>
     </div>
