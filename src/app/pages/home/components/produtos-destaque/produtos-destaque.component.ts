@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './produtos-destaque.component.css'
 })
 export class ProdutosDestaqueComponent {
-telefone = '244930664477';
+telefone = '244959801439';
   modalAberta = false;
   produtoSelecionado: any = null;
   quantidade = 1;

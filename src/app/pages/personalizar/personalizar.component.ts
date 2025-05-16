@@ -75,7 +75,7 @@ fecharModalResumo() {
 }
 
 gerarLinkWhatsApp(): string {
-  const numeroEmpresa = '+244941715454'; // coloque o número do WhatsApp da empresa com DDI/DD
+  const numeroEmpresa = '+244959801439'; // coloque o número do WhatsApp da empresa com DDI/DD
   let mensagem = `Olá! Gostaria de fazer um pedido:\n`;
   mensagem += `👥 Para: ${this.numeroDePessoas} pessoa(s)\n\n`;
   mensagem += `📦 Produtos:\n`;

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './pacote.component.css',
 })
 export class PacoteComponent {
-  telefone = '244941715454'; // Substitua pelo número correto
+  telefone = '244959801439'; // Substitua pelo número correto
 
   enviarEncomendaWhatsApp(pacote: any) {
     const mensagem = `Olá! Gostaria de encomendar o pacote ${
