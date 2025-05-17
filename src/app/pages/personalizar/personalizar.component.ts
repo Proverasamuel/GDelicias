@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeroComponent } from "./components/hero/hero.component";
 import { NgFor, NgIf } from '@angular/common';
+import { ToastService } from '../../toast.service';
+import { LucideAngularModule, Trash2 } from 'lucide-angular';
 
 interface Produto {
   nome: string;
@@ -13,11 +15,13 @@ interface Produto {
 @Component({
   selector: 'app-personalizar',
   standalone: true,
-  imports: [FormsModule, HeroComponent, NgFor, NgIf],
+  imports: [FormsModule, HeroComponent, NgFor, NgIf, LucideAngularModule],
   templateUrl: './personalizar.component.html',
   styleUrls: ['./personalizar.component.css'],
 })
 export class PersonalizarComponent {
+  constructor(private toastService: ToastService) {}
+  readonly Trash2 = Trash2;
   pasteis = ['Carne', 'Queijo', 'Doce', 'Vegetariano'];
   sumos = ['Laranja', 'Ananás', 'Manga'];
   iogurtes = ['Natural', 'Morango'];
@@ -53,16 +57,24 @@ export class PersonalizarComponent {
  
   mostrarModal: boolean = false;
 
-  adicionarProduto(produto: { nome: string, preco: number }) {
-    const existente = this.carrinho.find(item => item.nome === produto.nome);
+ adicionarProduto(produto: { nome: string, preco: number }) {
+  const existente = this.carrinho.find(item => item.nome === produto.nome);
 
-    if (existente) {
-      existente.quantidade++;
-      existente.total = existente.quantidade * produto.preco;
-    } else {
-      this.carrinho.push({ nome: produto.nome, preco: produto.preco, quantidade: 1, total: produto.preco });
-    }
+  if (existente) {
+    existente.quantidade++;
+    existente.total = existente.quantidade * produto.preco;
+    this.toastService.show(`Mais 1 unidade de ${produto.nome} foi adicionada ao carrinho.`);
+  } else {
+    this.carrinho.push({
+      nome: produto.nome,
+      preco: produto.preco,
+      quantidade: 1,
+      total: produto.preco
+    });
+    this.toastService.show(`${produto.nome} foi adicionado ao pacote!`);
   }
+}
+
 
   mostrarModalResumo = false;
 
@@ -92,6 +104,7 @@ gerarLinkWhatsApp(): string {
 
   adicionarAoPedido(numero: number) {
     this.numeroDePessoas = numero;
+    this.toastService.show(`Pacote personalizado para ${this.numeroDePessoas} pessoas.`);
   }
 
   abrirModalPersonalizar() {
@@ -102,9 +115,27 @@ gerarLinkWhatsApp(): string {
     this.mostrarModal = false;  // Fecha o modal
   }
 
+  removerProduto(produto: { nome: string }) {
+  const index = this.carrinho.findIndex(item => item.nome === produto.nome);
+
+  if (index !== -1) {
+    if (this.carrinho[index].quantidade > 1) {
+      this.carrinho[index].quantidade--;
+      this.carrinho[index].total = this.carrinho[index].quantidade * this.carrinho[index].preco;
+      this.toastService.show(`1 unidade de ${produto.nome} foi removida.`);
+    } else {
+      this.carrinho.splice(index, 1);
+      this.toastService.show(`${produto.nome} foi removido do carrinho.`);
+    }
+  }
+}
+
+
   aplicarNumeroDePessoas() {
     this.mostrarModal = false;  // Fecha o modal
     // Aplica o número de pessoas aos produtos do carrinho
+    this.toastService.show(`Pacote personalizado para ${this.numeroDePessoas} pessoas.`);
+ 
     this.carrinho.forEach(item => {
       item.total = item.preco * this.numeroDePessoas;
     });

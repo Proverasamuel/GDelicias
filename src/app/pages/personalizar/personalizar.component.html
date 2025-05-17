@@ -57,17 +57,23 @@
   </div>
 </section> -->
 
-<!-- Seção: Resumo do Pacote -->
+
 <!-- Seção: Resumo do Pacote -->
 <section class="py-12 px-4 bg-[#FFF2CE] max-w-7xl mx-auto rounded-lg shadow-md">
   <h2 class="text-2xl font-bold text-[#4B2E1D] mb-6 text-center">Resumo do seu pacote</h2>
   <p><strong>Número de pessoas:</strong> {{ numeroDePessoas }}</p>
   <ul class="mb-6 text-[#4B2E1D] space-y-2">
-    <li *ngFor="let item of carrinho" class="flex justify-between">
-      <span>{{ item.quantidade }}x {{ item.nome }}</span>
+  <li *ngFor="let item of carrinho" class="flex justify-between items-center">
+    <span>{{ item.quantidade }}x {{ item.nome }}</span>
+    <div class="flex items-center gap-4">
       <span>KZ {{ item.total.toFixed(2) }}</span>
-    </li>
-  </ul>
+      <button (click)="removerProduto(item)" class="text-red-600 hover:text-red-800 font-bold text-sm">
+        <lucide-icon [img]="Trash2" class="w-5 h-5"></lucide-icon>
+      </button>
+    </div>
+  </li>
+</ul>
+
   <div class="flex justify-between items-center mb-6">
     <p class="text-xl font-bold text-[#4B2E1D]">Total: KZ {{ total.toFixed(2) }}</p>
   <button (click)="abrirModalResumo()" class="bg-[#EAB308] text-white px-8 py-4 rounded-2xl text-lg hover:bg-yellow-500 transition-all duration-200">
