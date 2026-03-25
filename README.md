@@ -1,27 +1,121 @@
-# Pasteltech
+# 🥐 GDelícias – Plataforma de Vendas Online de Salgados
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+**GDelícias** é uma plataforma web criada para digitalizar e levar online a venda de rissois e salgados, saindo de espaços convencionais como redes sociais. O projeto foi desenvolvido em grupo e apresentado na **Feira de Tecnologia**, oferecendo uma experiência moderna e intuitiva para clientes e vendedores.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🌐 Demonstração
 
-## Code scaffolding
+🚀 Acesse a demo online: [https://gdelicias.netlify.app/](https://gdelicias.netlify.app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📌 Visão Geral
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O sistema foi projetado para:
 
-## Running unit tests
+* Digitalizar o processo de venda de salgados
+* Tornar a compra online simples e rápida
+* Proporcionar uma interface interativa e responsiva para usuários
+* Exibir produtos, preços e imagens de forma organizada
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🚀 Funcionalidades
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 👤 Usuário / Cliente
 
-## Further help
+* Navegação intuitiva pelos produtos
+* Visualização de detalhes e preços
+* Seleção de produtos para compra
+* Experiência responsiva em desktop e mobile
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 🛠️ Vendedor / Administrador
+
+* Apresentação do catálogo de produtos
+* Possibilidade de destacar produtos em promoção (versão futura)
+* Interface simplificada para gestão visual de produtos
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### 🔹 Frontend
+
+* **Angular**
+* **Tailwind CSS**
+* **Netlify** (deploy)
+
+### 🔹 Backend
+
+* Não possui backend — aplicação estática focada em apresentação e interatividade
+
+---
+
+## 🧠 Arquitetura
+
+A aplicação segue um modelo **SPA (Single Page Application)**:
+
+```
+Frontend (Angular + Tailwind CSS)
+        ↓
+Deploy: Netlify
+```
+
+* Todo o conteúdo é gerido no frontend
+* Interface totalmente responsiva e otimizada para performance
+
+
+---
+
+## ⚙️ Como Executar Localmente
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/gdelicias.git
+cd gdelicias
+```
+
+### 2. Instalar dependências
+
+```bash
+npm install
+```
+
+### 3. Executar aplicação
+
+```bash
+ng serve
+```
+
+Acesse em: `http://localhost:4200`
+
+---
+
+## 📈 Melhorias Futuras
+
+* Implementar sistema de pedidos e carrinho de compras
+* Adicionar backend para registro de vendas
+* Pagamento online integrado
+* Dashboard administrativo para controle de estoque e vendas
+* Sistema de notificações para clientes e vendedores
+
+---
+
+## 👨‍💻 Autor
+
+**Provera Samuel** – Desenvolvedor Web Fullstack
+
+* GitHub: [https://github.com/Proverasamuel/](https://github.com/Proverasamuel/)
+* Portfolio: [https://provera-samuel.netlify.app/](https://provera-samuel.netlify.app/)
+
+---
+
+## ⭐ Destaques do Projeto
+
+* Projeto apresentado em **feira de tecnologia**
+* Digitalização de vendas de produtos tradicionais
+* Aplicação responsiva e interativa, construída com **Angular + Tailwind CSS**
+* Disponível online via **Netlify**
+
