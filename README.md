@@ -73,7 +73,7 @@ Deploy: Netlify
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/gdelicias.git
+git clone https://github.com/Proverasamuel/GDelicias.git
 cd gdelicias
 ```
 
